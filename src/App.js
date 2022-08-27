@@ -60,6 +60,32 @@ function App() {
                   {filteredProduct.price.amount} {filteredProduct.price.base}
                 </tr>
             <tr>{filteredProduct.description}</tr>
+            <tr>Related products</tr>
+            {}
+            <tr>{products.filter( (product) => product.id=== filteredProduct.relatedProducts[0] ).map( (relatedProduct) =>  (
+
+<tr>
+                <td>{relatedProduct.id}</td>
+                <td>{relatedProduct.name}</td>
+                <td>
+                  {relatedProduct.price.amount} {relatedProduct.price.base}
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    onClick={(event) => handleViewMoreClick(event, relatedProduct)}
+                  >
+                    View more
+                  </button>
+                </td>
+              </tr>
+
+            )
+
+
+            )
+
+            }</tr>
               </td>
             ))}
         </table>
