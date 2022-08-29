@@ -2,9 +2,8 @@ import logo from "./logo.svg";
 import React, { useState } from "react";
 import "./App.css";
 import data from "./products.json";
-import ViewDetails from "./components/ViewDetails.js";
-import { ProductList } from "./components/ProductList";
-import { Item } from "./components/Item";
+import { ProductList } from "./components/ProductList/index.tsx";
+import { Item } from "./components/Item/index.tsx";
 
 function App() {
   const [products, setProducts] = useState(data);

@@ -7,8 +7,7 @@ function ProductList(props) {
     return (
        
            <ul>
-               <li>NAme</li>
-               <li>Price</li>
+               
                {props.children}
            </ul>
       
