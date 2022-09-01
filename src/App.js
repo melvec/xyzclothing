@@ -20,57 +20,50 @@ function App() {
       <div className="App">
         <ProductList>
           {products.map((product) => (
-            <Item 
-              key={product.id} 
+            <Item
+              key={product.id}
               name={product.name}
               price={product.price.amount}
               base={product.price.base}
               viewDetails={(event) => handleViewMoreClick(event, product)}
-        >
-              </Item>
+            ></Item>
           ))}
         </ProductList>
 
-               <table>
-               {products
-                .filter((product) => product.id === viewMoreId)
-                .map((filteredProduct) => (
-                  <td>
-                    <tr>{filteredProduct.id} </tr>
-                    <tr>{filteredProduct.name}</tr>
-                    <tr>
-                      {filteredProduct.price.amount} {filteredProduct.price.base}
-                    </tr>
-                <tr>{filteredProduct.description}</tr>
-                <tr>Related products</tr>
-                {}
-                <tr>{products.filter( (product) => product.id=== filteredProduct.relatedProducts[0] ).map( (relatedProduct) =>  (
+        <table>
 
-    <tr>
-                    <td>{relatedProduct.id}</td>
-                    <td>{relatedProduct.name}</td>
-                    <td>
-                      {relatedProduct.price.amount} {relatedProduct.price.base}
-                    </td>
-                    <td>
-                      <button
-                        type="button"
-                        onClick={(event) => handleViewMoreClick(event, relatedProduct)}
-                      >
-                        View more
-                      </button>
-                    </td>
-                  </tr>
 
-                )
+        {products
+  .filter((product) => product.id === viewMoreId)
+  .map((filteredProduct) => (
+    <td>
+      <tr>{filteredProduct.id} </tr>
+      <tr>{filteredProduct.name}</tr>
+      <tr>
+        {filteredProduct.price.amount} {filteredProduct.price.base}
+      </tr>
+      <tr>{filteredProduct.description}</tr>
+  <tr>{filteredProduct.relatedProducts.forEach((value)=> console.log(value))}</tr>
 
-                )
+     
 
-                }</tr>
-                  </td>
-                ))}
-            </table>
 
+   
+    
+    </td>
+  ))}
+
+
+
+
+
+          </table>
+
+
+
+
+
+       
       </div>
     </>
 
