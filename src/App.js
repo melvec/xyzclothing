@@ -5,8 +5,14 @@ import data from "./products.json";
 import { ProductList } from "./components/ProductList/index.tsx";
 import { Item } from "./components/Item/index.tsx";
 
+
+
 function App() {
+
+
   const [products, setProducts] = useState(data);
+
+
 
   const [viewMoreId, setViewMoreId] = useState(null);
 
@@ -33,37 +39,49 @@ function App() {
         <table>
 
 
-        {products
-  .filter((product) => product.id === viewMoreId)
-  .map((filteredProduct) => (
-    <td>
-      <tr>{filteredProduct.id} </tr>
-      <tr>{filteredProduct.name}</tr>
-      <tr>
-        {filteredProduct.price.amount} {filteredProduct.price.base}
-      </tr>
-      <tr>{filteredProduct.description}</tr>
-  <tr>{filteredProduct.relatedProducts.forEach((value)=> console.log(value))}</tr>
+          {products
+            .filter((product) => product.id === viewMoreId)
+            .map((filteredProduct) => (
+              <td>
+                <tr>{filteredProduct.id} </tr>
+                <tr>{filteredProduct.name}</tr>
+                <tr>
+                  {filteredProduct.price.amount} {filteredProduct.price.base}
+                </tr>
+                <tr>{filteredProduct.description}</tr>
+                <tr>{filteredProduct.relatedProducts.forEach((relatedProductId) => {
 
-     
-
-
-   
-    
-    </td>
-  ))}
-
-
+                  const relatedProduct = products.find(
+                    (product) =>
+                      product.id === relatedProductId
+                  )
+                
+                }
+                )
 
 
 
-          </table>
+                }</tr>
 
 
 
 
 
-       
+
+              </td>
+            ))}
+
+
+
+
+
+        </table>
+
+
+
+
+
+
       </div>
     </>
 

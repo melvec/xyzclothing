@@ -9,12 +9,12 @@ function Item(props) {
         <p className="item-p">{props.price}</p>
         <p className="item-p">{props.base}</p>
         <p>
-        <button
-        className="icon-detail"
-                        type="button"
-                        onClick={props.viewDetails}
-                      >
-                        View more
+          <button
+            className="icon-detail"
+            type="button"
+            onClick={props.viewDetails}
+          >
+            View more
                       </button>
         </p>
       </li>
